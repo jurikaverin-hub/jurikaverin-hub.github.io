@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>nAIbator — small studio, sharp eye</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="nAIbator is an independent studio in Tallinn, Estonia. We make digital products with care: ECHOMETIQ for ultrasonic weld inspection, and the game Green Frontier.">
+<link rel="canonical" href="https://naibator.com/">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nAIbator">
+<meta property="og:title" content="nAIbator — small studio, sharp eye">
+<meta property="og:description" content="nAIbator is an independent studio in Tallinn, Estonia. We make digital products with care: ECHOMETIQ for ultrasonic weld inspection, and the game Green Frontier.">
+<meta property="og:url" content="https://naibator.com/">
+<meta property="og:image" content="https://naibator.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;550;700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Pixelify+Sans:wght@700&display=swap">
+<style>
+/* Layout: the page is a shelf. Three product boxes stand on it in real 3D,
+   the slug sits on whichever box you point at and watches the cursor.
+   Tapping a box opens it in place, below the shelf. */
+:root{
+  --ground:#f1f6f5;      /* cool paper, tinted toward the slug */
+  --surface:#ffffff;
+  --ink:#1f3340;         /* navy of the letter n */
+  --ink-soft:#52666f;
+  --petrol:#286872;
+  --slug:#4fc5ce;
+  --line:#cfdcda;
+  --plank:#2a4250;
+  --night:#0d1418;       /* ECHOMETIQ box */
+  --amber:#f08a24;
+  --moss:#12382c;        /* SubPilot box */
+  --display:"Onest","Segoe UI",system-ui,sans-serif;
+  --body:"Golos Text","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --pixel:"Pixelify Sans","Onest",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--ground);color:var(--ink);font:400 17px/1.55 var(--body);margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:var(--petrol)}
+:focus-visible{outline:3px solid var(--slug);outline-offset:4px;border-radius:6px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:baseline;text-decoration:none;color:var(--ink);font-family:var(--display);line-height:1}
+.brand img{height:28px;width:auto;display:block;margin-right:-2px}
+.brand .ai{font-weight:760;font-size:34px;letter-spacing:-.05em;color:var(--petrol)}
+.brand .bator{font-weight:550;font-size:27px;letter-spacing:-.04em}
+.nav{display:flex;gap:22px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--ink-soft)}
+.nav a:hover{color:var(--petrol)}
+
+/* intro */
+.intro{padding-block:10px 0;max-width:46em}
+h1{font:800 clamp(36px,5.6vw,58px)/1.02 var(--display);letter-spacing:-.045em;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--petrol)}
+.lead{margin:12px 0 0;color:var(--ink-soft);font-size:18px;max-width:38em}
+h1 br{display:none}
+
+/* the shelf */
+.scene{--w:clamp(88px,min(23vw,23vh),210px);--h:calc(var(--w)*1.3);--d:calc(var(--w)*.3);
+  position:relative;margin-top:0;padding-top:calc(var(--w)*.72);perspective:1400px;perspective-origin:50% 30%}
+.row{display:flex;justify-content:center;align-items:flex-end;gap:calc(var(--w)*.34);padding-inline:calc(var(--w)*.1)}
+.box{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer;
+  width:var(--w);height:var(--h);position:relative;flex:none;transform-style:preserve-3d;
+  transform:rotateX(-7deg) rotateY(24deg);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.box:hover,.box:focus-visible{transform:rotateX(-7deg) rotateY(14deg) translateY(-6px)}
+.box[aria-expanded="true"]{transform:rotateX(-4deg) rotateY(4deg) translateY(-10px)}
+.face{position:absolute;overflow:hidden;backface-visibility:hidden}
+.front{inset:0;transform:translateZ(calc(var(--d)/2));border-radius:3px;display:flex;flex-direction:column}
+.back{inset:0;transform:rotateY(180deg) translateZ(calc(var(--d)/2));background:var(--c-side)}
+.left,.right{top:0;left:50%;width:var(--d);height:100%;margin-left:calc(var(--d)/-2);background:var(--c-side);
+  display:flex;align-items:center;justify-content:center}
+.left{transform:rotateY(-90deg) translateZ(calc(var(--w)/2))}
+.right{transform:rotateY(90deg) translateZ(calc(var(--w)/2))}
+.lid{left:0;top:50%;width:100%;height:var(--d);margin-top:calc(var(--d)/-2);background:var(--c-lid);
+  transform:rotateX(90deg) translateZ(calc(var(--h)/2))}
+.spine{transform:rotate(-90deg);white-space:nowrap;font:700 calc(var(--w)*.085)/1 var(--display);letter-spacing:.04em;color:var(--c-spine)}
+.front::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,rgba(255,255,255,.22),rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(0,0,0,.18))}
+.sticker{position:absolute;left:7%;bottom:6%;z-index:2;font:500 calc(var(--w)*.058)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:.5em .7em;border-radius:3px;background:var(--surface);color:var(--ink)}
+
+/* covers */
+.b-echo{--c-side:#182329;--c-lid:#22323a;--c-spine:#f08a24}
+.b-echo .front{background:var(--night);color:#fff}
+.b-echo .cover-art{position:absolute;left:0;right:0;bottom:0;height:56%;width:100%;object-fit:cover;object-position:62% 100%}
+.b-echo .mark{position:relative;padding:11% 8% 0;font:800 calc(var(--w)*.135)/1 var(--display);letter-spacing:-.02em}
+.b-echo .mark b{color:var(--amber)}
+.b-echo .sub{position:relative;padding:5% 8% 0;font-size:calc(var(--w)*.062);line-height:1.3;color:#a9bcc1}
+.b-echo .sticker{background:var(--amber);color:#1c1204}
+
+.b-game{--c-side:#3a2a22;--c-lid:#5a3f2e;--c-spine:#ffd9a0}
+.b-game .cover-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b-game .front::before{content:"";position:absolute;inset:0 0 auto;height:34%;background:linear-gradient(#170d12e6,#170d1200);z-index:1}
+.b-game .mark{position:relative;z-index:2;padding:9% 8% 0;font:700 calc(var(--w)*.118)/1.02 var(--pixel);letter-spacing:.02em;color:#fff3dc;text-transform:uppercase;text-shadow:0 2px 0 #170d12}
+
+.b-sub{--c-side:#0c271f;--c-lid:#1a4a3a;--c-spine:#8fe3b8}
+.b-sub .front{background:radial-gradient(120% 80% at 80% 10%,#1f5d48,var(--moss) 60%);color:#eafff4}
+.b-sub .glyph{width:44%;margin:16% 0 0 8%;display:block}
+.b-sub .mark{padding:8% 8% 0;font:800 calc(var(--w)*.14)/1 var(--display);letter-spacing:-.03em}
+.b-sub .sub{padding:4% 8% 0;font-size:calc(var(--w)*.062);line-height:1.3;color:#9cc8b4}
+.b-sub .sticker{background:#d7e2de;color:#31423d}
+
+.plank{height:14px;margin-top:-3px;border-radius:3px;background:linear-gradient(var(--plank),#1c2e38);box-shadow:0 18px 24px -14px rgba(31,51,64,.55);position:relative}
+.plank::after{content:"";position:absolute;left:6%;right:6%;top:100%;height:9px;background:linear-gradient(rgba(31,51,64,.14),transparent)}
+
+/* the slug */
+.slug{position:absolute;left:0;top:0;width:calc(var(--w)*.74);aspect-ratio:934/837;z-index:5;pointer-events:none}
+.slug.ready{transition:transform .5s cubic-bezier(.3,1.35,.5,1)}
+.slug .body{position:absolute;inset:0;transform-origin:50% 100%}
+.slug.hop .body{animation:hop .5s ease}
+.slug img{width:100%;height:100%;display:block}
+/* contact shadow: the slug rests on the lid instead of floating over it */
+.slug .shade{position:absolute;left:7%;right:5%;bottom:0;height:13%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(6,16,22,.55),rgba(6,16,22,.22) 55%,rgba(6,16,22,0))}
+.slug.hop .shade{animation:shade .5s ease}
+@keyframes shade{35%{transform:scale(.7);opacity:.4}}
+.eye{position:absolute;left:70.4%;top:52.6%;width:35.5%;aspect-ratio:1;transform:translate(-50%,-50%)}
+.eye svg{width:100%;height:100%;display:block;overflow:visible}
+@keyframes hop{0%{transform:translateY(0) scale(1,1)}35%{transform:translateY(-34%) scale(.94,1.08)}75%{transform:translateY(0) scale(1.07,.9)}100%{transform:translateY(0) scale(1,1)}}
+
+.hint{text-align:center;color:var(--ink-soft);font-size:15px;margin:22px 0 0}
+
+/* opened box: takes the colours of its product and shows a real screen of it */
+.inside{--p-bg:var(--surface);--p-fg:var(--ink);--p-soft:var(--ink-soft);--p-line:var(--line);--p-accent:var(--petrol);--p-on:#fff;--p-kick:var(--ink-soft);
+  margin-top:22px;background:var(--p-bg);color:var(--p-fg);border:1px solid var(--p-line);border-radius:14px;padding:26px;
+  display:grid;gap:30px;align-items:center;animation:reveal .35s cubic-bezier(.2,.8,.2,1)}
+.inside[data-p="echometiq"]{--p-bg:#0d1418;--p-fg:#eef3f4;--p-soft:#a3b4ba;--p-line:#22303a;--p-accent:#f08a24;--p-on:#1b1104;--p-kick:#3fd9d2;grid-template-columns:minmax(0,210px) 1fr}
+.inside[data-p="green-frontier"]{--p-bg:#231813;--p-fg:#fff3dc;--p-soft:#d6bfa2;--p-line:#4a3528;--p-accent:#ffd9a0;--p-on:#231813;--p-kick:#ffd9a0;grid-template-columns:1.15fr 1fr}
+.inside[data-p="subpilot"]{--p-bg:#12382c;--p-fg:#eafff4;--p-soft:#9cc8b4;--p-line:#245646;--p-accent:#8fe3b8;--p-on:#0c271f;--p-kick:#8fe3b8;grid-template-columns:minmax(0,170px) 1fr}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}}
+.inside>*{min-width:0}
+.shot{margin:0}
+.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--p-line)}
+.shot figcaption{font:500 11px/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--p-soft);margin-top:8px}
+.inside .kicker{font:500 11.5px/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--p-kick);margin:0 0 8px}
+.inside h3{font:800 28px/1.12 var(--display);letter-spacing:-.03em;margin:0 0 10px;text-wrap:balance}
+.inside p{margin:0 0 14px;color:var(--p-soft);max-width:36em}
+.cta{display:inline-block;background:var(--p-accent);color:var(--p-on);font-weight:600;text-decoration:none;padding:12px 18px;border-radius:10px}
+.cta:hover{filter:brightness(1.1)}
+.facts{margin:20px 0 0;display:grid;gap:10px;font-size:15px;max-width:36em}
+.facts div{display:grid;grid-template-columns:6.4em 1fr;gap:10px;border-top:1px solid var(--p-line);padding-top:10px}
+.facts dt{font:500 11.5px/1.7 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--p-soft)}
+.facts dd{margin:0}
+
+/* studio */
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:36px;padding-block:64px 26px}
+.studio>*{min-width:0}
+h2{font:700 28px/1.15 var(--display);letter-spacing:-.03em;margin:0}
+.studio p{margin:12px 0 0;color:var(--ink-soft);max-width:32em}
+.card{font-size:15.5px;display:grid;gap:8px;align-content:start;margin:0}
+.card div{display:grid;grid-template-columns:8em 1fr;gap:10px;border-top:1px solid var(--line);padding-top:8px}
+.card dt{font:500 11.5px/1.7 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+.card dd{margin:0;user-select:all}
+.foot{border-top:1px solid var(--line);padding-block:20px 34px;display:flex;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;font-size:14.5px;color:var(--ink-soft)}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot a{color:var(--ink-soft)}
+
+@media (max-width:760px){
+  .nav{display:none}
+  .intro{padding-block:10px 0}
+  .studio,.inside[data-p]{grid-template-columns:1fr}
+  .inside{padding:20px;gap:20px}
+  .inside[data-p="echometiq"] .shot{max-width:190px}
+  .inside[data-p="subpilot"] .shot{max-width:170px}
+  h1 br{display:inline}
+  .studio{padding-block:44px 22px;gap:26px}
+}
+@media (prefers-reduced-motion:reduce){.box,.slug.ready{transition:none}.slug.hop .body,.slug.hop .shade,.inside{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="nAIbator — home"><img src="/assets/logo-n.png" alt=""><span class="ai">AI</span><span class="bator">bator</span></a>
+    <nav class="nav" aria-label="Sections"><a href="#shelf">Products</a><a href="#studio">Studio</a><a href="#studio">Contact</a></nav>
+  </header>
+
+  <section class="intro" id="top">
+    <h1>Small studio. <br><em>Sharp eye.</em></h1>
+    <p class="lead">nAIbator is an independent studio in Tallinn. We make digital things with care: tools for professionals, and games.</p>
+  </section>
+
+  <section id="shelf" aria-label="Products">
+    <div class="scene" id="scene">
+      <div class="slug" id="slug" aria-hidden="true">
+        <span class="shade"></span>
+        <div class="body">
+          <img src="/assets/slug.png" alt="">
+          <div class="eye">
+            <svg viewBox="-50 -50 100 100">
+              <defs><radialGradient id="iris" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#2a86a6"/><stop offset=".6" stop-color="#145a7c"/><stop offset="1" stop-color="#0b3350"/></radialGradient></defs>
+              <circle r="50" fill="#0f4466"/>
+              <circle r="45.5" fill="#fff"/>
+              <g id="iris-g"><circle r="29" fill="url(#iris)"/><circle r="17" fill="#07202f"/><circle cx="9" cy="-10" r="6.5" fill="#fff"/></g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="box b-echo" type="button" data-open="echometiq" aria-expanded="false" aria-controls="inside" aria-label="ECHOMETIQ — open the box">
+          <span class="face back"></span>
+          <span class="face left"><span class="spine">ECHOMETIQ</span></span>
+          <span class="face right"><span class="spine">ECHOMETIQ</span></span>
+          <span class="face lid"></span>
+          <span class="face front">
+            <img class="cover-art" src="/assets/echometiq.jpg" alt="">
+            <span class="mark">ECHO<b>METIQ</b></span>
+            <span class="sub">Ultrasonic testing assistant</span>
+            <span class="sticker">Coming soon</span>
+          </span>
+        </button>
+
+        <button class="box b-game" type="button" data-open="green-frontier" aria-expanded="false" aria-controls="inside" aria-label="Green Frontier — open the box">
+          <span class="face back"></span>
+          <span class="face left"><span class="spine">GREEN FRONTIER</span></span>
+          <span class="face right"><span class="spine">GREEN FRONTIER</span></span>
+          <span class="face lid"></span>
+          <span class="face front">
+            <img class="cover-art" src="/assets/green-frontier-cover.jpg" alt="">
+            <span class="mark">Green<br>Frontier</span>
+            <span class="sticker">In development</span>
+          </span>
+        </button>
+
+        <button class="box b-sub" type="button" data-open="subpilot" aria-expanded="false" aria-controls="inside" aria-label="SubPilot — open the box">
+          <span class="face back"></span>
+          <span class="face left"><span class="spine">SUBPILOT</span></span>
+          <span class="face right"><span class="spine">SUBPILOT</span></span>
+          <span class="face lid"></span>
+          <span class="face front">
+            <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke="#8fe3b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M50 26a19 19 0 1 0 1 12"/><path d="M52 12v14H38"/><path d="M32 22v20M26 27h9a4 4 0 0 1 0 8h-6a4 4 0 0 0 0 8h9" stroke-width="3"/></svg>
+            <span class="mark">SubPilot</span>
+            <span class="sub">Subscriptions and bills</span>
+            <span class="sticker">Archived</span>
+          </span>
+        </button>
+      </div>
+      <div class="plank" aria-hidden="true"></div>
+    </div>
+
+    <p class="hint" id="hint">Pick a box to open it.</p>
+    <article class="inside" id="inside" aria-live="polite" hidden></article>
+  </section>
+
+  <section class="studio" id="studio">
+    <div>
+      <h2>One studio, different products</h2>
+      <p>A tool for weld inspectors and a jungle action game have little in common. What they share is how they are made: by a small team that checks the details before anything ships.</p>
+    </div>
+    <dl class="card">
+      <div><dt>Company</dt><dd>nAIbator OÜ</dd></div>
+      <div><dt>Based in</dt><dd>Tallinn, Estonia</dd></div>
+      <div><dt>Registry code</dt><dd>17359018</dd></div>
+      <div><dt>Contact</dt><dd>info@naibator.com</dd></div>
+    </dl>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 nAIbator OÜ</span>
+    <nav aria-label="Legal"><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/imprint">Company details</a></nav>
+  </footer>
+</div>
+
+<script>
+const PRODUCTS = {
+  "echometiq": {
+    kicker: "Tool · Android, Windows",
+    title: "See the sound path. Understand the readings.",
+    text: [
+      "An assistant for ultrasonic testing of welds. It draws the beam through your joint, your probe and your material, and puts the instrument reading on the drawing as a point.",
+      "Geometric beam-path model. Does not replace an approved inspection procedure."
+    ],
+    shot: {src: "/assets/echometiq-step3.jpg", w: 520, h: 1060, alt: "ECHOMETIQ analysis screen: a 61.4 mm sound path placed as a point inside a T-joint drawing", cap: "Analysis screen"},
+    cta: "Go to the ECHOMETIQ page →", href: "/echometiq",
+    facts: [["For", "UT inspectors"], ["Price", "14 days free, then $7.99 a month or $59.99 a year"], ["Status", "Coming to Google Play"]]
+  },
+  "green-frontier": {
+    kicker: "Game · Windows",
+    title: "A crashed pilot, a jungle and a fortress that should not be there.",
+    text: [
+      "A 2D pixel-art action game about Rada, a young pilot who has to fight her way back out.",
+      "The game is in development. Its page will open when there is a trailer to show."
+    ],
+    shot: {src: "/assets/green-frontier-wide.jpg", alt: "Green Frontier opening scene: Rada drifting in a raft toward the shore", cap: "Opening scene"},
+    facts: [["Genre", "2D action"], ["Status", "In development"]]
+  },
+  "subpilot": {
+    kicker: "App · Android",
+    title: "Our first product: every subscription and bill in one place.",
+    text: [
+      "SubPilot tracked subscriptions, household bills and one-time payments, with reminders and spending insights. It is no longer available on Google Play.",
+      "Its privacy policy stays online for people who still have the app installed."
+    ],
+    shot: {src: "/assets/subpilot-home.jpg", w: 440, h: 782, alt: "SubPilot home screen with upcoming payments", cap: "Home screen"},
+    cta: "SubPilot privacy policy →", href: "/subpilot/privacy",
+    facts: [["Platform", "Android"], ["Status", "Archived"]]
+  }
+};
+
+const scene = document.getElementById("scene");
+const slug = document.getElementById("slug");
+const iris = document.getElementById("iris-g");
+const inside = document.getElementById("inside");
+const hint = document.getElementById("hint");
+const boxes = [...document.querySelectorAll(".box")];
+let perch = boxes[0];
+
+function sit(box, hop){
+  perch = box;
+  const s = scene.getBoundingClientRect(), b = box.getBoundingClientRect();
+  const w = slug.offsetWidth, h = slug.offsetHeight;
+  const x = b.left - s.left + b.width / 2 - w / 2;
+  const y = b.top - s.top - h * 0.94;
+  slug.style.transform = "translate(" + x + "px," + y + "px)";
+  if (hop){ slug.classList.remove("hop"); void slug.offsetWidth; slug.classList.add("hop"); }
+}
+function open(key){
+  const p = PRODUCTS[key];
+  const m = '<img src="' + p.shot.src + '"' + (p.shot.w ? ' width="' + p.shot.w + '" height="' + p.shot.h + '"' : '') + ' alt="' + p.shot.alt + '"><figcaption>' + p.shot.cap + '</figcaption>';
+  inside.dataset.p = key;
+  inside.style.animation = "none"; void inside.offsetWidth; inside.style.animation = "";
+  inside.innerHTML = '<figure class="shot">' + m + '</figure>' +
+    '<div><p class="kicker">' + p.kicker + '</p><h3>' + p.title + '</h3>' +
+    p.text.map(t => '<p>' + t + '</p>').join('') +
+    (p.href ? '<a class="cta" href="' + p.href + '">' + p.cta + '</a>' : '') +
+    '<dl class="facts">' + p.facts.map(f => '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>').join('') + '</dl></div>';
+  inside.hidden = false; hint.hidden = true;
+  boxes.forEach(b => b.setAttribute("aria-expanded", String(b.dataset.open === key)));
+}
+boxes.forEach(b => {
+  b.addEventListener("pointerenter", () => { if (perch !== b) sit(b, true); });
+  b.addEventListener("focus", () => { if (perch !== b) sit(b, true); });
+  b.addEventListener("click", () => { open(b.dataset.open); setTimeout(() => sit(b, perch !== b), 460); });
+  b.addEventListener("transitionend", () => { if (perch === b) sit(b, false); });
+});
+addEventListener("resize", () => sit(perch, false));
+if (window.ResizeObserver) new ResizeObserver(() => sit(perch, false)).observe(scene);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => sit(perch, false));
+addEventListener("pointermove", e => {
+  const r = slug.querySelector(".eye").getBoundingClientRect();
+  const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+  const k = Math.min(1, Math.hypot(dx, dy) / 260) * 13 / (Math.hypot(dx, dy) || 1);
+  iris.setAttribute("transform", "translate(" + (dx * k).toFixed(1) + "," + (dy * k).toFixed(1) + ")");
+});
+function start(){ sit(perch, false); setTimeout(() => slug.classList.add("ready"), 600); }
+if (document.readyState === "complete") start(); else addEventListener("load", start);
+start();
+</script>
+</body>
+</html>
