@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECHOMETIQ: Инструкция — nAIbator</title>
+<meta name="description" content="Четыре модуля внизу экрана: ОК, ПЭП, DAC, Луч. Идите слева направо: каждый следующий берёт данные предыдущего.">
+<link rel="canonical" href="https://naibator.com/echometiq/guide/ru">
+<link rel="alternate" hreflang="en" href="https://naibator.com/echometiq/guide">
+<link rel="alternate" hreflang="ru" href="https://naibator.com/echometiq/guide/ru">
+<link rel="alternate" hreflang="nb" href="https://naibator.com/echometiq/guide/nb">
+<link rel="alternate" hreflang="pl" href="https://naibator.com/echometiq/guide/pl">
+<link rel="alternate" hreflang="de" href="https://naibator.com/echometiq/guide/de">
+<link rel="alternate" hreflang="fr" href="https://naibator.com/echometiq/guide/fr">
+<link rel="alternate" hreflang="es" href="https://naibator.com/echometiq/guide/es">
+<link rel="alternate" hreflang="it" href="https://naibator.com/echometiq/guide/it">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nAIbator">
+<meta property="og:title" content="ECHOMETIQ: Инструкция — nAIbator">
+<meta property="og:description" content="Четыре модуля внизу экрана: ОК, ПЭП, DAC, Луч. Идите слева направо: каждый следующий берёт данные предыдущего.">
+<meta property="og:url" content="https://naibator.com/echometiq/guide/ru">
+<meta property="og:image" content="https://naibator.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@550;700;800&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--ground:#f1f6f5;--surface:#fff;--ink:#1f3340;--ink-soft:#52666f;--petrol:#286872;--line:#cfdcda;
+  --display:"Onest","Segoe UI",system-ui,sans-serif;--body:"Golos Text","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--body)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:var(--petrol)}
+:focus-visible{outline:3px solid #4fc5ce;outline-offset:3px;border-radius:6px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.brand{display:flex;align-items:baseline;text-decoration:none;color:var(--ink);font-family:var(--display);line-height:1}
+.brand img{height:28px;width:auto;display:block;margin-right:-2px}
+.brand .ai{font-weight:760;font-size:34px;letter-spacing:-.05em;color:var(--petrol)}
+.brand .bator{font-weight:550;font-size:27px;letter-spacing:-.04em}
+.top nav{display:flex;gap:18px;font-size:15px}
+h1{font:800 clamp(32px,6vw,46px)/1.05 var(--display);letter-spacing:-.04em;margin:24px 0 0}
+h2{font:700 21px/1.25 var(--display);letter-spacing:-.02em;margin:34px 0 0}
+p,li{color:var(--ink-soft)}
+p{margin:10px 0 0}
+ul{margin:10px 0 0;padding-left:1.2em}
+li{margin-top:6px}
+.mail{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.mail .label{font-size:15px;margin:0}
+.mail .addr{font:700 clamp(22px,5vw,30px)/1.2 var(--display);letter-spacing:-.02em;color:var(--ink);user-select:all;margin:4px 0 0;overflow-wrap:anywhere}
+.foot{margin-top:56px;border-top:1px solid var(--line);padding-block:20px 34px;font-size:14.5px;color:var(--ink-soft)}
+h3{font:700 18px/1.3 var(--display);letter-spacing:-.01em;margin:22px 0 0}
+.meta{font-size:15px}
+.addr{user-select:all;color:var(--ink);font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline}
+.foot{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot a{color:var(--ink-soft)}
+
+.lang{font:inherit;font-size:15px;min-height:40px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+h1{overflow-wrap:anywhere}
+p,li,dd{overflow-wrap:break-word}
+
+.wrap{max-width:980px}
+.steps>*,.tg>*,.steps li>*,dl>*{min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px;margin-top:22px}
+.steps h2{margin:0 0 10px}
+.shot{position:relative;border-radius:14px;overflow:hidden;background:#0b0d0f}
+.shot img{display:block;width:100%;height:auto}
+.m{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#fff;color:#0b0d0f;border:2px solid #f8962d;font:700 13px/20px "Segoe UI",sans-serif;text-align:center}
+.steps ol{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.steps ol li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;margin:0;line-height:1.4;color:var(--ink)}
+.steps ol i{width:24px;height:24px;border-radius:50%;border:2px solid #f8962d;color:var(--ink);font:700 13px/20px "Segoe UI",sans-serif;text-align:center;font-style:normal}
+.steps p{font-size:16px;line-height:1.5}
+.tg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:12px}
+.tg div{display:grid;justify-items:center;align-content:start;gap:6px;text-align:center;font-size:15px;line-height:1.3;color:var(--ink-soft)}
+.tg svg{width:40px;height:40px;padding:8px;border-radius:10px;background:#0f1315;color:#e8edf0;fill:none;stroke:currentColor;stroke-width:1.6}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 18px;margin:12px 0 0}dt{font-weight:600}dd{margin:0;color:var(--ink-soft)}
+@media(max-width:820px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.steps{grid-template-columns:minmax(0,1fr)}.shot{max-width:360px}.tg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/" aria-label="nAIbator — home"><img src="/assets/logo-n.png" alt=""><span class="ai">AI</span><span class="bator">bator</span></a>
+    <nav aria-label="Pages"><a href="/echometiq">ECHOMETIQ</a><a href="/support">Support</a></nav>
+  </header>
+
+  <h1>ECHOMETIQ: Инструкция</h1>
+  <p class="meta"><a href="/assets/echometiq-guide/ECHOMETIQ-guide-ru.pdf">PDF</a> <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="/echometiq/guide" lang="en">English</option><option value="/echometiq/guide/ru" lang="ru" selected>Русский</option><option value="/echometiq/guide/nb" lang="nb">Norsk</option><option value="/echometiq/guide/pl" lang="pl">Polski</option><option value="/echometiq/guide/de" lang="de">Deutsch</option><option value="/echometiq/guide/fr" lang="fr">Français</option><option value="/echometiq/guide/es" lang="es">Español</option><option value="/echometiq/guide/it" lang="it">Italiano</option></select></p>
+  <p>Четыре модуля внизу экрана: ОК, ПЭП, DAC, Луч. Идите слева направо: каждый следующий берёт данные предыдущего.</p>
+  <div class="steps"><section><h2>1. ОК: материал</h2><div class="shot"><img src="/assets/echometiq-guide/ru-object.webp" width="720" height="1280" loading="lazy" alt="1. ОК: материал"><b class="m" aria-hidden="true" style="left:81.80%;top:25.14%">1</b><b class="m" aria-hidden="true" style="left:53.69%;top:32.24%">2</b><b class="m" aria-hidden="true" style="left:37.00%;top:11.69%">3</b><b class="m" aria-hidden="true" style="left:43.00%;top:74.00%">4</b></div><ol><li><i>1</i><span>Выберите материал</span></li><li><i>2</i><span>Измерили скорость поперечной волны? Впишите, м/с</span></li><li><i>3</i><span>Размеры, разделка и шов на соседних вкладках</span></li><li><i>4</i><span>Схема сразу перестраивается</span></li></ol><p>Материал задаёт скорость звука, а скорость задаёт угол луча. Поэтому начинайте отсюда.</p></section>
+<section><h2>2. ОК: размеры</h2><div class="shot"><img src="/assets/echometiq-guide/ru-dims.webp" width="720" height="1280" loading="lazy" alt="2. ОК: размеры"><b class="m" aria-hidden="true" style="left:55.05%;top:22.42%">1</b><b class="m" aria-hidden="true" style="left:92.08%;top:30.27%">2</b><b class="m" aria-hidden="true" style="left:55.05%;top:36.33%">3</b></div><ol><li><i>1</i><span>Толщина t₁</span></li><li><i>2</i><span>Толщина t₂ неизвестна? Снимите отметку: луч уйдёт в неё без расчёта отражений</span></li><li><i>3</i><span>Толщина t₂</span></li></ol><p>t₁ — элемент, по которому двигается ПЭП. t₂ — элемент, к которому он приварен. Ниже на вкладке задаётся наклон γ.</p></section>
+<section><h2>3. ОК: разделка и шов</h2><div class="shot"><img src="/assets/echometiq-guide/ru-prep.webp" width="720" height="1280" loading="lazy" alt="3. ОК: разделка и шов"><b class="m" aria-hidden="true" style="left:47.32%;top:19.95%">1</b><b class="m" aria-hidden="true" style="left:81.80%;top:43.14%">2</b><b class="m" aria-hidden="true" style="left:64.21%;top:11.69%">3</b></div><ol><li><i>1</i><span>По стандарту или вручную</span></li><li><i>2</i><span>Форма и сторона разделки</span></li><li><i>3</i><span>Вкладка «Шов»: высота и ширина валика</span></li></ol><p>Форму можно взять из ISO 9692-1 или задать вручную. Под списком показано, какие размеры допускает стандарт.</p></section>
+<section><h2>4. ПЭП: угол</h2><div class="shot"><img src="/assets/echometiq-guide/ru-probe.webp" width="720" height="1280" loading="lazy" alt="4. ПЭП: угол"><b class="m" aria-hidden="true" style="left:62.55%;top:23.17%">1</b><b class="m" aria-hidden="true" style="left:70.00%;top:31.25%">2</b><b class="m" aria-hidden="true" style="left:46.11%;top:69.55%">3</b><b class="m" aria-hidden="true" style="left:73.11%;top:75.05%">4</b></div><ol><li><i>1</i><span>Угол ПЭП в эталоне</span></li><li><i>2</i><span>Расчётный угол в выбранном материале</span></li><li><i>3</i><span>Потяните ПЭП вдоль шва. A и B: сторона</span></li><li><i>4</i><span>Луч, отражения и расхождение пучка</span></li></ol><p>Угол на ПЭП верен для эталона. В другом материале он другой, программа его пересчитывает. Стрела ПЭП задаётся на вкладке «Корпус», размер пьезоэлемента на вкладке «Пучок».</p></section>
+<section><h2>5. ПЭП: положение</h2><div class="shot"><img src="/assets/echometiq-guide/ru-place.webp" width="720" height="1280" loading="lazy" alt="5. ПЭП: положение"><b class="m" aria-hidden="true" style="left:46.38%;top:23.98%">1</b><b class="m" aria-hidden="true" style="left:50.46%;top:37.95%">2</b><b class="m" aria-hidden="true" style="left:60.00%;top:55.43%">3</b></div><ol><li><i>1</i><span>Сторона установки ПЭП</span></li><li><i>2</i><span>Расстояние от грани ПЭП до края усиления</span></li><li><i>3</i><span>Докуда рисовать луч</span></li></ol><p>Двигайте ПЭП на схеме или здесь. Цветные полосы на схеме — зона сканирования и зона зачистки, их размеры на вкладке «Расчёты».</p></section>
+<section><h2>6. DAC: настроечный блок</h2><div class="shot"><img src="/assets/echometiq-guide/ru-dac.webp" width="720" height="1280" loading="lazy" alt="6. DAC: настроечный блок"><b class="m" aria-hidden="true" style="left:41.81%;top:31.24%">1</b><b class="m" aria-hidden="true" style="left:92.00%;top:37.49%">2</b><b class="m" aria-hidden="true" style="left:56.50%;top:66.35%">3</b><b class="m" aria-hidden="true" style="left:54.11%;top:11.69%">4</b></div><ol><li><i>1</i><span>Толщина блока</span></li><li><i>2</i><span>Длина подберётся сама</span></li><li><i>3</i><span>Нажмите на ПЭП или номер: путь и размеры</span></li><li><i>4</i><span>Список всех позиций</span></li></ol><p>Программа расставляет отверстия так, чтобы расширяющийся пучок не задевал соседние. Можно задать и свой блок на вкладке «Отражатели».</p></section>
+<section><h2>7. DAC: позиции</h2><div class="shot"><img src="/assets/echometiq-guide/ru-dacpos.webp" width="720" height="1280" loading="lazy" alt="7. DAC: позиции"><b class="m" aria-hidden="true" style="left:87.41%;top:39.48%">1</b><b class="m" aria-hidden="true" style="left:44.28%;top:43.78%">2</b><b class="m" aria-hidden="true" style="left:46.56%;top:55.36%">3</b></div><ol><li><i>1</i><span>X — от точки выхода, Xfront — от грани ПЭП, S — путь</span></li><li><i>2</i><span>С какой стороны подойти к отверстию</span></li><li><i>3</i><span>Убрать позицию из списка</span></li></ol><p>Поставьте ПЭП на каждую позицию, найдите максимум и постройте кривую на дефектоскопе. Программа даёт геометрию, амплитуды измеряете вы.</p></section>
+<section><h2>8. Луч: по пути SA</h2><div class="shot"><img src="/assets/echometiq-guide/ru-beam.webp" width="720" height="1280" loading="lazy" alt="8. Луч: по пути SA"><b class="m" aria-hidden="true" style="left:94.21%;top:19.72%">1</b><b class="m" aria-hidden="true" style="left:59.81%;top:29.03%">2</b><b class="m" aria-hidden="true" style="left:40.61%;top:74.84%">3</b><b class="m" aria-hidden="true" style="left:41.72%;top:11.69%">4</b></div><ol><li><i>1</i><span>Режим «По SA и модели»</span></li><li><i>2</i><span>Путь SA с дефектоскопа, мм</span></li><li><i>3</i><span>Точка на схеме</span></li><li><i>4</i><span>Вкладка «Положение»: сторона и место ПЭП</span></li></ol><p>Нужен только путь с прибора. Программа проводит луч по вашему соединению и ставит точку. Это модель: она показывает, откуда сигнал мог прийти.</p></section>
+<section><h2>9. Луч: по показаниям</h2><div class="shot"><img src="/assets/echometiq-guide/ru-readings.webp" width="720" height="1280" loading="lazy" alt="9. Луч: по показаниям"><b class="m" aria-hidden="true" style="left:47.32%;top:19.83%">1</b><b class="m" aria-hidden="true" style="left:59.81%;top:29.03%">2</b><b class="m" aria-hidden="true" style="left:26.16%;top:38.56%">3</b><b class="m" aria-hidden="true" style="left:73.84%;top:38.56%">4</b></div><ol><li><i>1</i><span>Режим «По показаниям»</span></li><li><i>2</i><span>SA: путь луча</span></li><li><i>3</i><span>RA: по поверхности от передней грани ПЭП</span></li><li><i>4</i><span>DA: глубина</span></li></ol><p>Прибор показывает SA, RA и DA? Введите все три. Точка встанет по числам прибора, а вкладка «Анализ» сравнит её с моделью и скажет, согласованы ли показания.</p></section>
+<section><h2>10. Луч → Отчёт</h2><div class="shot"><img src="/assets/echometiq-guide/ru-report.webp" width="720" height="1280" loading="lazy" alt="10. Луч → Отчёт"><b class="m" aria-hidden="true" style="left:69.52%;top:20.37%">1</b><b class="m" aria-hidden="true" style="left:42.98%;top:51.88%">2</b><b class="m" aria-hidden="true" style="left:47.16%;top:59.17%">3</b></div><ol><li><i>1</i><span>Фото из галереи или с камеры</span></li><li><i>2</i><span>Сохранить запись на устройстве</span></li><li><i>3</i><span>Открыть для печати или PDF</span></li></ol><p>В запись попадают схема, показания, комментарий и фото. Имя оператора и организации один раз вносятся в «Настройках».</p></section>
+<section><h2>11. Неизвестный металл</h2><div class="shot"><img src="/assets/echometiq-guide/ru-calc.webp" width="720" height="1280" loading="lazy" alt="11. Неизвестный металл"><b class="m" aria-hidden="true" style="left:25.67%;top:26.06%">1</b><b class="m" aria-hidden="true" style="left:72.43%;top:26.06%">2</b><b class="m" aria-hidden="true" style="left:5.50%;top:44.78%">3</b></div><ol><li><i>1</i><span>X: по поверхности до отражателя</span></li><li><i>2</i><span>h: глубина отражателя</span></li><li><i>3</i><span>Оценка скорости и угла</span></li></ol><p>ОК → «Дополнительно» → калькулятор. Подтвердите угол и скорость на эталоне, найдите максимум от известного отражателя на изделии и введите два размера. Программа оценит скорость и угол, но марку металла не определяет.</p></section>
+</div>
+  <h2>Кнопки у схемы</h2>
+  <div class="tg"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M9 9h6v6H9z"/></svg>Вся схема</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M12 8v8M8 12h1M15 12h1"/></svg>Приблизить шов</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6a6 6 0 1 0 0 12a6 6 0 1 0 0-12M12 11a1 1 0 1 0 0 2a1 1 0 1 0 0-2M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Приблизить сигнал</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 0 0 12a6 6 0 1 0 0-12M15 15l6 6M7 10h6M10 7v6"/></svg>Крупнее или мельче</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8h20v8H2zM6 8v3M10 8v4M14 8v3M18 8v4"/></svg>Измерить</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Сдвинуть</div></div>
+  <h2>Обозначения</h2>
+  <dl><dt>SA</dt><dd>путь звука от точки выхода ПЭП</dd><dt>RA</dt><dd>расстояние по поверхности от передней грани ПЭП</dd><dt>DA</dt><dd>глубина от поверхности, где стоит ПЭП</dd><dt>α₀ → α</dt><dd>угол в эталоне → угол в вашем материале, от нормали</dd><dt>c</dt><dd>скорость поперечной волны</dd><dt>θ₀</dt><dd>половина угла расхождения пучка</dd><dt>ΔDAC</dt><dd>насколько сигнал выше или ниже кривой, дБ</dd></dl>
+  <h2>Если что-то не сходится</h2>
+  <ul><li>Точка не в шве: проверьте сторону A или B, положение ПЭП и стрелу на вкладке «Корпус».</li><li>Вместо угла прочерк: при такой скорости угол стал критическим, луч в металл не входит. Проверьте скорость.</li><li>Показания не согласованы: сверьте калибровку прибора и от какой точки он считает RA.</li><li>Панель закрывает схему: потяните ручку между ними.</li></ul>
+  <h2>Записи</h2>
+  <p>Записи хранятся только на этом устройстве и удаляются вместе с программой. Важное сохраняйте в PDF, HTML или JSON.</p>
+  <h2>Подписка (Android)</h2>
+  <ul><li>14 дней бесплатно для нового подписчика, затем месяц или год.</li><li>Отмена: Google Play → значок профиля → Платежи и подписки → Подписки → ECHOMETIQ.</li><li>Без интернета расчёты работают до 7 дней после последней проверки подписки.</li><li>Сменили телефон? Войдите в тот же аккаунт Google и нажмите «Восстановить покупку».</li></ul>
+  <h2>Важно</h2>
+  <p>ECHOMETIQ рассчитывает геометрию луча в однородном материале. Программа не определяет тип дефекта и не заменяет калибровку прибора, утверждённую процедуру и решение аттестованного специалиста.</p>
+  <p>Вопросы: <span class="addr">info@naibator.com</span> · <a href="/echometiq/terms/ru">Условия использования</a> · <a href="/echometiq/privacy/ru">Политика конфиденциальности</a></p>
+
+  <footer class="foot">
+    <span>© 2026 nAIbator OÜ · Tallinn, Estonia</span>
+    <nav aria-label="Help and legal"><a href="/news">News</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/imprint">Company details</a><a href="https://www.linkedin.com/company/naibator" rel="me noopener" target="_blank">LinkedIn</a></nav>
+  </footer>
+</div>
+</body>
+</html>

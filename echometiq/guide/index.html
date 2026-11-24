@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECHOMETIQ: Guide — nAIbator</title>
+<meta name="description" content="Four modules at the bottom of the screen: Test object, Probe, DAC, Beam. Go left to right: each one uses the data of the one before.">
+<link rel="canonical" href="https://naibator.com/echometiq/guide">
+<link rel="alternate" hreflang="en" href="https://naibator.com/echometiq/guide">
+<link rel="alternate" hreflang="ru" href="https://naibator.com/echometiq/guide/ru">
+<link rel="alternate" hreflang="nb" href="https://naibator.com/echometiq/guide/nb">
+<link rel="alternate" hreflang="pl" href="https://naibator.com/echometiq/guide/pl">
+<link rel="alternate" hreflang="de" href="https://naibator.com/echometiq/guide/de">
+<link rel="alternate" hreflang="fr" href="https://naibator.com/echometiq/guide/fr">
+<link rel="alternate" hreflang="es" href="https://naibator.com/echometiq/guide/es">
+<link rel="alternate" hreflang="it" href="https://naibator.com/echometiq/guide/it">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nAIbator">
+<meta property="og:title" content="ECHOMETIQ: Guide — nAIbator">
+<meta property="og:description" content="Four modules at the bottom of the screen: Test object, Probe, DAC, Beam. Go left to right: each one uses the data of the one before.">
+<meta property="og:url" content="https://naibator.com/echometiq/guide">
+<meta property="og:image" content="https://naibator.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@550;700;800&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--ground:#f1f6f5;--surface:#fff;--ink:#1f3340;--ink-soft:#52666f;--petrol:#286872;--line:#cfdcda;
+  --display:"Onest","Segoe UI",system-ui,sans-serif;--body:"Golos Text","Segoe UI",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--body)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:var(--petrol)}
+:focus-visible{outline:3px solid #4fc5ce;outline-offset:3px;border-radius:6px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.brand{display:flex;align-items:baseline;text-decoration:none;color:var(--ink);font-family:var(--display);line-height:1}
+.brand img{height:28px;width:auto;display:block;margin-right:-2px}
+.brand .ai{font-weight:760;font-size:34px;letter-spacing:-.05em;color:var(--petrol)}
+.brand .bator{font-weight:550;font-size:27px;letter-spacing:-.04em}
+.top nav{display:flex;gap:18px;font-size:15px}
+h1{font:800 clamp(32px,6vw,46px)/1.05 var(--display);letter-spacing:-.04em;margin:24px 0 0}
+h2{font:700 21px/1.25 var(--display);letter-spacing:-.02em;margin:34px 0 0}
+p,li{color:var(--ink-soft)}
+p{margin:10px 0 0}
+ul{margin:10px 0 0;padding-left:1.2em}
+li{margin-top:6px}
+.mail{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.mail .label{font-size:15px;margin:0}
+.mail .addr{font:700 clamp(22px,5vw,30px)/1.2 var(--display);letter-spacing:-.02em;color:var(--ink);user-select:all;margin:4px 0 0;overflow-wrap:anywhere}
+.foot{margin-top:56px;border-top:1px solid var(--line);padding-block:20px 34px;font-size:14.5px;color:var(--ink-soft)}
+h3{font:700 18px/1.3 var(--display);letter-spacing:-.01em;margin:22px 0 0}
+.meta{font-size:15px}
+.addr{user-select:all;color:var(--ink);font-weight:500}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline}
+.foot{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot a{color:var(--ink-soft)}
+
+.lang{font:inherit;font-size:15px;min-height:40px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+h1{overflow-wrap:anywhere}
+p,li,dd{overflow-wrap:break-word}
+
+.wrap{max-width:980px}
+.steps>*,.tg>*,.steps li>*,dl>*{min-width:0;overflow-wrap:anywhere;hyphens:auto}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px;margin-top:22px}
+.steps h2{margin:0 0 10px}
+.shot{position:relative;border-radius:14px;overflow:hidden;background:#0b0d0f}
+.shot img{display:block;width:100%;height:auto}
+.m{position:absolute;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#fff;color:#0b0d0f;border:2px solid #f8962d;font:700 13px/20px "Segoe UI",sans-serif;text-align:center}
+.steps ol{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.steps ol li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;margin:0;line-height:1.4;color:var(--ink)}
+.steps ol i{width:24px;height:24px;border-radius:50%;border:2px solid #f8962d;color:var(--ink);font:700 13px/20px "Segoe UI",sans-serif;text-align:center;font-style:normal}
+.steps p{font-size:16px;line-height:1.5}
+.tg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:12px}
+.tg div{display:grid;justify-items:center;align-content:start;gap:6px;text-align:center;font-size:15px;line-height:1.3;color:var(--ink-soft)}
+.tg svg{width:40px;height:40px;padding:8px;border-radius:10px;background:#0f1315;color:#e8edf0;fill:none;stroke:currentColor;stroke-width:1.6}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 18px;margin:12px 0 0}dt{font-weight:600}dd{margin:0;color:var(--ink-soft)}
+@media(max-width:820px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.steps{grid-template-columns:minmax(0,1fr)}.shot{max-width:360px}.tg{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/" aria-label="nAIbator — home"><img src="/assets/logo-n.png" alt=""><span class="ai">AI</span><span class="bator">bator</span></a>
+    <nav aria-label="Pages"><a href="/echometiq">ECHOMETIQ</a><a href="/support">Support</a></nav>
+  </header>
+
+  <h1>ECHOMETIQ: Guide</h1>
+  <p class="meta"><a href="/assets/echometiq-guide/ECHOMETIQ-guide-en.pdf">PDF</a> <select class="lang" aria-label="Language" onchange="location.href=this.value"><option value="/echometiq/guide" lang="en" selected>English</option><option value="/echometiq/guide/ru" lang="ru">Русский</option><option value="/echometiq/guide/nb" lang="nb">Norsk</option><option value="/echometiq/guide/pl" lang="pl">Polski</option><option value="/echometiq/guide/de" lang="de">Deutsch</option><option value="/echometiq/guide/fr" lang="fr">Français</option><option value="/echometiq/guide/es" lang="es">Español</option><option value="/echometiq/guide/it" lang="it">Italiano</option></select></p>
+  <p>Four modules at the bottom of the screen: Test object, Probe, DAC, Beam. Go left to right: each one uses the data of the one before.</p>
+  <div class="steps"><section><h2>1. Test object: material</h2><div class="shot"><img src="/assets/echometiq-guide/en-object.webp" width="720" height="1280" loading="lazy" alt="1. Test object: material"><b class="m" aria-hidden="true" style="left:81.80%;top:25.14%">1</b><b class="m" aria-hidden="true" style="left:53.69%;top:32.24%">2</b><b class="m" aria-hidden="true" style="left:37.02%;top:11.69%">3</b><b class="m" aria-hidden="true" style="left:43.00%;top:74.00%">4</b></div><ol><li><i>1</i><span>Select the material</span></li><li><i>2</i><span>Measured the shear velocity? Enter it, m/s</span></li><li><i>3</i><span>Dimensions, preparation and weld are on the next tabs</span></li><li><i>4</i><span>The drawing updates at once</span></li></ol><p>The material sets the sound velocity, and the velocity sets the beam angle. So start here.</p></section>
+<section><h2>2. Test object: dimensions</h2><div class="shot"><img src="/assets/echometiq-guide/en-dims.webp" width="720" height="1280" loading="lazy" alt="2. Test object: dimensions"><b class="m" aria-hidden="true" style="left:55.05%;top:21.80%">1</b><b class="m" aria-hidden="true" style="left:92.08%;top:29.03%">2</b><b class="m" aria-hidden="true" style="left:55.05%;top:35.08%">3</b></div><ol><li><i>1</i><span>Thickness t₁</span></li><li><i>2</i><span>Thickness t₂ unknown? Untick the box: the beam enters it with no reflections calculated</span></li><li><i>3</i><span>Thickness t₂</span></li></ol><p>t₁ is the element the probe moves on. t₂ is the element it is welded to. The tilt γ is set further down on this tab.</p></section>
+<section><h2>3. Test object: preparation and weld</h2><div class="shot"><img src="/assets/echometiq-guide/en-prep.webp" width="720" height="1280" loading="lazy" alt="3. Test object: preparation and weld"><b class="m" aria-hidden="true" style="left:47.32%;top:19.95%">1</b><b class="m" aria-hidden="true" style="left:81.80%;top:43.14%">2</b><b class="m" aria-hidden="true" style="left:66.89%;top:11.69%">3</b></div><ol><li><i>1</i><span>By the standard or by hand</span></li><li><i>2</i><span>Shape and side of the preparation</span></li><li><i>3</i><span>Weld tab: height and width of the cap</span></li></ol><p>Take the shape from ISO 9692-1 or define it by hand. Below the list you see the dimensions the standard allows.</p></section>
+<section><h2>4. Probe: angle</h2><div class="shot"><img src="/assets/echometiq-guide/en-probe.webp" width="720" height="1280" loading="lazy" alt="4. Probe: angle"><b class="m" aria-hidden="true" style="left:62.55%;top:23.17%">1</b><b class="m" aria-hidden="true" style="left:70.00%;top:31.25%">2</b><b class="m" aria-hidden="true" style="left:27.62%;top:76.56%">3</b><b class="m" aria-hidden="true" style="left:54.62%;top:82.06%">4</b></div><ol><li><i>1</i><span>Probe angle in the reference block</span></li><li><i>2</i><span>Calculated angle in the selected material</span></li><li><i>3</i><span>Drag the probe along the weld. A and B: the side</span></li><li><i>4</i><span>Beam, reflections and beam spread</span></li></ol><p>The angle on the probe is valid in the reference block. In another material it differs, and the app recalculates it. The probe index distance is on the Housing tab, the element size on the Beam tab.</p></section>
+<section><h2>5. Probe: position</h2><div class="shot"><img src="/assets/echometiq-guide/en-place.webp" width="720" height="1280" loading="lazy" alt="5. Probe: position"><b class="m" aria-hidden="true" style="left:46.38%;top:23.98%">1</b><b class="m" aria-hidden="true" style="left:50.46%;top:37.95%">2</b><b class="m" aria-hidden="true" style="left:60.00%;top:55.43%">3</b></div><ol><li><i>1</i><span>Side the probe stands on</span></li><li><i>2</i><span>Distance from the probe front to the edge of the cap</span></li><li><i>3</i><span>How far to draw the beam</span></li></ol><p>Move the probe on the drawing or here. The coloured strips on the drawing are the scanning zone and the zone to clean; their sizes are on the Calculations tab.</p></section>
+<section><h2>6. DAC: reference block</h2><div class="shot"><img src="/assets/echometiq-guide/en-dac.webp" width="720" height="1280" loading="lazy" alt="6. DAC: reference block"><b class="m" aria-hidden="true" style="left:41.81%;top:31.24%">1</b><b class="m" aria-hidden="true" style="left:92.00%;top:37.49%">2</b><b class="m" aria-hidden="true" style="left:56.50%;top:66.35%">3</b><b class="m" aria-hidden="true" style="left:50.77%;top:11.69%">4</b></div><ol><li><i>1</i><span>Block thickness</span></li><li><i>2</i><span>The length is fitted for you</span></li><li><i>3</i><span>Tap a probe or number: path and dimensions</span></li><li><i>4</i><span>List of all positions</span></li></ol><p>The app places the holes so that the spreading beam does not touch the neighbours. You can also define your own block on the Reflectors tab.</p></section>
+<section><h2>7. DAC: positions</h2><div class="shot"><img src="/assets/echometiq-guide/en-dacpos.webp" width="720" height="1280" loading="lazy" alt="7. DAC: positions"><b class="m" aria-hidden="true" style="left:87.41%;top:39.48%">1</b><b class="m" aria-hidden="true" style="left:44.28%;top:43.78%">2</b><b class="m" aria-hidden="true" style="left:46.56%;top:55.36%">3</b></div><ol><li><i>1</i><span>X: from the index point, Xfront: from the probe front, S: sound path</span></li><li><i>2</i><span>From which side to approach the hole</span></li><li><i>3</i><span>Remove a position from the list</span></li></ol><p>Set the probe at each position, maximise the echo and build the curve on your flaw detector. The app gives the geometry; you measure the amplitudes.</p></section>
+<section><h2>8. Beam: from the sound path</h2><div class="shot"><img src="/assets/echometiq-guide/en-beam.webp" width="720" height="1280" loading="lazy" alt="8. Beam: from the sound path"><b class="m" aria-hidden="true" style="left:94.21%;top:19.72%">1</b><b class="m" aria-hidden="true" style="left:64.84%;top:29.03%">2</b><b class="m" aria-hidden="true" style="left:40.61%;top:74.84%">3</b><b class="m" aria-hidden="true" style="left:33.97%;top:11.69%">4</b></div><ol><li><i>1</i><span>SA and model mode</span></li><li><i>2</i><span>Sound path SA from your flaw detector, mm</span></li><li><i>3</i><span>The point on the drawing</span></li><li><i>4</i><span>Position tab: probe side and location</span></li></ol><p>Only the path from the instrument is needed. The app runs the beam through your joint and places the point. It is a model: it shows where the signal may have come from.</p></section>
+<section><h2>9. Beam: from instrument readings</h2><div class="shot"><img src="/assets/echometiq-guide/en-readings.webp" width="720" height="1280" loading="lazy" alt="9. Beam: from instrument readings"><b class="m" aria-hidden="true" style="left:47.32%;top:19.83%">1</b><b class="m" aria-hidden="true" style="left:64.84%;top:29.03%">2</b><b class="m" aria-hidden="true" style="left:26.16%;top:38.56%">3</b><b class="m" aria-hidden="true" style="left:73.84%;top:38.56%">4</b></div><ol><li><i>1</i><span>Instrument readings mode</span></li><li><i>2</i><span>SA: sound path</span></li><li><i>3</i><span>RA: along the surface from the probe front</span></li><li><i>4</i><span>DA: depth</span></li></ol><p>Does your instrument show SA, RA and DA? Enter all three. The point follows the instrument&#x27;s numbers, and the Analysis tab compares it with the model and tells you whether the readings agree.</p></section>
+<section><h2>10. Beam → Report</h2><div class="shot"><img src="/assets/echometiq-guide/en-report.webp" width="720" height="1280" loading="lazy" alt="10. Beam → Report"><b class="m" aria-hidden="true" style="left:53.62%;top:20.37%">1</b><b class="m" aria-hidden="true" style="left:31.19%;top:51.88%">2</b><b class="m" aria-hidden="true" style="left:34.74%;top:59.17%">3</b></div><ol><li><i>1</i><span>Photos from the gallery or the camera</span></li><li><i>2</i><span>Save the record on the device</span></li><li><i>3</i><span>Open to print or save as PDF</span></li></ol><p>A record holds the drawing, readings, comment and photos. Enter the operator and organisation once, in Settings.</p></section>
+<section><h2>11. Unknown metal</h2><div class="shot"><img src="/assets/echometiq-guide/en-calc.webp" width="720" height="1280" loading="lazy" alt="11. Unknown metal"><b class="m" aria-hidden="true" style="left:25.67%;top:26.06%">1</b><b class="m" aria-hidden="true" style="left:72.43%;top:26.06%">2</b><b class="m" aria-hidden="true" style="left:5.50%;top:44.78%">3</b></div><ol><li><i>1</i><span>X: along the surface to the reflector</span></li><li><i>2</i><span>h: depth of the reflector</span></li><li><i>3</i><span>Estimated velocity and angle</span></li></ol><p>Test object → Additional settings → calculator. Confirm the angle and velocity on the reference block, find the maximum from a known reflector on the part and enter two dimensions. The app estimates the velocity and angle; it does not identify the grade.</p></section>
+</div>
+  <h2>Drawing buttons</h2>
+  <div class="tg"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M9 9h6v6H9z"/></svg>Whole drawing</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5M12 8v8M8 12h1M15 12h1"/></svg>Zoom to the weld</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6a6 6 0 1 0 0 12a6 6 0 1 0 0-12M12 11a1 1 0 1 0 0 2a1 1 0 1 0 0-2M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Zoom to the signal</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 0 0 12a6 6 0 1 0 0-12M15 15l6 6M7 10h6M10 7v6"/></svg>Zoom in or out</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8h20v8H2zM6 8v3M10 8v4M14 8v3M18 8v4"/></svg>Measure</div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M9 5l3-3 3 3M9 19l3 3 3-3M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Move</div></div>
+  <h2>Symbols</h2>
+  <dl><dt>SA</dt><dd>sound path from the probe index point</dd><dt>RA</dt><dd>distance along the surface from the probe front</dd><dt>DA</dt><dd>depth from the surface the probe stands on</dd><dt>α₀ → α</dt><dd>angle in the reference block → angle in your material, from the normal</dd><dt>c</dt><dd>shear wave velocity</dd><dt>θ₀</dt><dd>half of the beam spread angle</dd><dt>ΔDAC</dt><dd>how far the signal is above or below the curve, dB</dd></dl>
+  <h2>If something does not match</h2>
+  <ul><li>The point is outside the weld: check side A or B, the probe position and the index distance on the Housing tab.</li><li>A dash instead of the angle: at this velocity the angle is critical and the beam does not enter the metal. Check the velocity.</li><li>The readings do not agree: check the instrument calibration and the point it measures RA from.</li><li>The panel covers the drawing: drag the handle between them.</li></ul>
+  <h2>Records</h2>
+  <p>Records stay on this device only and are removed with the app. Save what matters as PDF, HTML or JSON.</p>
+  <h2>Subscription (Android)</h2>
+  <ul><li>14 days free for new subscribers, then monthly or yearly.</li><li>To cancel: Google Play → profile icon → Payments &amp; subscriptions → Subscriptions → ECHOMETIQ.</li><li>Without internet, calculations keep working for up to 7 days after the last subscription check.</li><li>New phone? Sign in to the same Google account and tap Restore purchase.</li></ul>
+  <h2>Important</h2>
+  <p>ECHOMETIQ calculates beam geometry in a homogeneous material. It does not identify defect types and does not replace instrument calibration, an approved procedure or the judgement of a certified inspector.</p>
+  <p>Questions: <span class="addr">info@naibator.com</span> · <a href="/echometiq/terms">Terms of use</a> · <a href="/echometiq/privacy">Privacy policy</a></p>
+
+  <footer class="foot">
+    <span>© 2026 nAIbator OÜ · Tallinn, Estonia</span>
+    <nav aria-label="Help and legal"><a href="/news">News</a><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/imprint">Company details</a><a href="https://www.linkedin.com/company/naibator" rel="me noopener" target="_blank">LinkedIn</a></nav>
+  </footer>
+</div>
+</body>
+</html>
