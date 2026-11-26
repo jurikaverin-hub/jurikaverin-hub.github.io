@@ -81,6 +81,7 @@ h1{font:800 clamp(38px,5.6vw,62px)/1.02 var(--display);letter-spacing:-.04em;mar
 .sum-lines{margin:18px 0 0;padding:16px 18px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font:500 14px/1.9 var(--mono);color:var(--fg);overflow-x:auto;white-space:nowrap}
 .sum-lines b{color:var(--amber);font-weight:500}
 .trust{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.check.solo{grid-template-columns:1fr}.check.solo .trust{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
 .trust li{border-top:1px solid var(--line);padding:16px 0}
 .trust strong{display:block;font:700 17px/1.3 var(--display)}
 .trust span{display:block;color:var(--fg-soft);font-size:15.5px;margin-top:4px}
@@ -128,6 +129,7 @@ h2{font:800 clamp(28px,3.6vw,40px)/1.1 var(--display);letter-spacing:-.035em;mar
   .shot{width:min(100%,260px);justify-self:start}
   .plan-grid{grid-template-columns:1fr}
   .check{grid-template-columns:1fr;gap:28px;padding-block:40px 0}
+  .check.solo .trust{grid-template-columns:1fr}
   .readout div{padding:10px 10px}
   .readout dd{font-size:18px}
   .sum-lines{font-size:12px;padding:14px 12px}
@@ -211,14 +213,7 @@ h2{font:800 clamp(28px,3.6vw,40px)/1.1 var(--display);letter-spacing:-.035em;mar
     </article>
   </section>
 
-  <section class="check" aria-label="Check it yourself">
-    <div>
-      <span class="mono">Check it yourself</span>
-      <h2>No black box. The example above, by hand.</h2>
-      <p>A 60° beam in a 20 mm plate, sound path 61.4 mm. One leg is 40 mm long, so the echo comes from the second leg, after the far wall.</p>
-      <div class="sum-lines">leg = 20 / cos 60° = <b>40.0 mm</b><br>from index = 61.4 × sin 60° = <b>53.2 mm</b><br>depth = 40 − 61.4 × cos 60° = <b>9.3 mm</b></div>
-      <p>ECHOMETIQ applies the same geometry to your own joint drawing, so every point it shows can be checked with a calculator.</p>
-    </div>
+  <section class="check solo" aria-label="Why trust it">
     <ul class="trust">
       <li><strong>Your data stays on the device</strong><span>The Android app asks for no internet, storage or camera permission. Photos come through the system camera or picker, only when you choose one.</span></li>
       <li><strong>A model, stated as a model</strong><span>Results are labelled as geometry, not as a verdict. Acceptance stays with your procedure and your inspector.</span></li>
